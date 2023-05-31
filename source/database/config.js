@@ -1,7 +1,6 @@
 const mongoose = require("mongoose");
 
 /* Vamos a crear una función try-cath para la conexión */
-
 const dbConnection = async () => {
   try {
     mongoose.set("strictQuery", false);
@@ -9,5 +8,12 @@ const dbConnection = async () => {
       "mongodb+srv://unid:unid@cluster0.xsqqxvt.mongodb.net/"
     );
     console.log("La base de data está OK");
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+/* Exportamos nuestra función para su utilización */
+module.exports = {
+  dbConnection,
 };
