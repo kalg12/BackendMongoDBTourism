@@ -4,9 +4,7 @@ const mongoose = require("mongoose");
 const dbConnection = async () => {
   try {
     mongoose.set("strictQuery", false);
-    await mongoose.connect(
-      "mongodb+srv://unid:unid@cluster0.xsqqxvt.mongodb.net/"
-    );
+    await mongoose.connect(process.env.URI_DB);
     console.log("La base de data está OK");
   } catch (error) {
     console.log(error);
