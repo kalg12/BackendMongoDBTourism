@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
 
-/* Vamos a crear una función try-cath para la conexión */
 const dbConnection = async () => {
   try {
     mongoose.set("strictQuery", false);
     await mongoose.connect(process.env.URI_DB);
-    console.log("La base de data está OK");
+    console.log("DB Online");
   } catch (error) {
     console.log(error);
+    throw new Error("Error to connect to database");
   }
 };
 
