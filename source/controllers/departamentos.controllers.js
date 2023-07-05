@@ -4,7 +4,10 @@ const Departamentos = require("../model/departamentos");
 exports.obtenerDepartamentos = async (req, res) => {
   try {
     const departamentos = await Departamentos.find();
-    res.json(departamentos);
+    res.json({
+      status:"ok",
+      departamentos
+    });
   } catch (error) {
     res
       .status(500)
