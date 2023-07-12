@@ -6,6 +6,7 @@ const departamentosSchema = new Schema({
     type: String,
     require: true,
   },
+  precio: Number,
 });
 
 module.exports = model("Departamentos", departamentosSchema);

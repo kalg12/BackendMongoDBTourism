@@ -5,8 +5,8 @@ exports.obtenerDepartamentos = async (req, res) => {
   try {
     const departamentos = await Departamentos.find();
     res.json({
-      status:"ok",
-      departamentos
+      status: "ok",
+      departamentos,
     });
   } catch (error) {
     res
@@ -34,9 +34,13 @@ exports.obtenerDepartamentoPorId = async (req, res) => {
 
 // Crear un nuevo departamento
 exports.crearDepartamento = async (req, res) => {
-  const { nombre, descripcion } = req.body;
+  const { nombre, descripcion, precio } = req.body;
   try {
-    const departamento = await Departamentos.create({ nombre, descripcion });
+    const departamento = await Departamentos.create({
+      nombre,
+      descripcion,
+      precio,
+    });
     res.status(201).json(departamento);
   } catch (error) {
     res

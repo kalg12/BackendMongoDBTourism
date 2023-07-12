@@ -4,7 +4,7 @@ const app = express();
 require("dotenv").config();
 const { dbConnection } = require("./source/database/config");
 const req = require("express/lib/request");
-const departamentosRoutes = require("./source/routes/departamentos.routes")
+const departamentosRoutes = require("./source/routes/departamentos.routes");
 
 dbConnection();
 
@@ -18,4 +18,4 @@ app.get("/", function (_, res) {
   res.send("<h2>Hola mundo</h2>");
 });
 
-app.listen(3000);
+app.listen(3000, console.log("Servidor corriendo en el puerto 3000"));
